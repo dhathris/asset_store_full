@@ -320,11 +320,6 @@
 						"name": "Content-Type",
 						"type": "text",
 						"value": "application/json"
-					},
-					{
-						"key": "X-User",
-						"value": "admin",
-						"type": "text"
 					}
 				],
 				"body": {
