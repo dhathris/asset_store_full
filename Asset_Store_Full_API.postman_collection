@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "c436626d-8094-4336-9648-b462ed1e3a4b",
+		"name": "Asset Store Full API",
+		"description": "This collection contains various types of requests for Asset Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrieve All Assets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "Requests all assets in the store"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Assets with Filter asset_class",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/?asset_class=satellite",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					],
+					"query": [
+						{
+							"key": "asset_class",
+							"value": "satellite"
+						}
+					]
+				},
+				"description": "Requests all assets in the store"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Assets with Filter asset_type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/?asset_type=dish",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					],
+					"query": [
+						{
+							"key": "asset_type",
+							"value": "dish"
+						}
+					]
+				},
+				"description": "Requests all assets in the store"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Assets with Filters asset_class and asset_type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/?asset_class=satellite&asset_type=yagi",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					],
+					"query": [
+						{
+							"key": "asset_class",
+							"value": "satellite"
+						},
+						{
+							"key": "asset_type",
+							"value": "yagi"
+						}
+					]
+				},
+				"description": "Requests all assets in the store"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Assets with ignored filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/?asset_name=test",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					],
+					"query": [
+						{
+							"key": "asset_name",
+							"value": "test"
+						}
+					]
+				},
+				"description": "Requests all assets in the store"
+			},
+			"response": []
+		},
+		{
+			"name": "Create A Single Asset with Success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-User",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat1234\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This POST request attempts to create a single asset"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Assets with Success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-User",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Dove7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"dove\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"RapidEye7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"rapideye\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Dish7890\",\n\t\t\t\"asset_type\": \"antenna\",\n\t\t\t\"asset_class\": \"dish\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Yagi7890\",\n\t\t\t\"asset_type\": \"antenna\",\n\t\t\t\"asset_class\": \"yagi\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This POST request attempts to create multiple assets"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Assets with Errors",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-User",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite1234\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat1896()\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"yagi\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Sky_Sat1\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This POST request attempts to create multiple assets which have errors. The POST will result in a 400 Bad Request because of the errors. Assets POST is an all or nothing method, so even if there are valid assets, a single asset with errors will preclude the valid assets from being added."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Assets without X-User header",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-User",
+						"value": "admin",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite1234\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat1896()\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"yagi\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Sky_Sat1\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This POST request attempts to create multiple assets which have errors. The POST will result in a 400 Bad Request because of the errors. Assets POST is an all or nothing method, so even if there are valid assets, a single asset with errors will preclude the valid assets from being added."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Assets with non admin X-User header",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-User",
+						"type": "text",
+						"value": "nonadmin"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite1234\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"SkySat1896()\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"yagi\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Sky_Sat1\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This POST request attempts to create multiple assets which have errors. The POST will result in a 400 Bad Request because of the errors. Assets POST is an all or nothing method, so even if there are valid assets, a single asset with errors will preclude the valid assets from being added."
+			},
+			"response": []
+		},
+		{
+			"name": "Retrive A Single Asset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/SkySat7890",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"SkySat7890"
+					]
+				},
+				"description": "This request attempts to get a particular asset with name parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove All Assets",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This request attempts to bulk delete all assets in the asset store"
+			},
+			"response": []
+		},
+		{
+			"name": "Remove A Single Asset",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/SkySat7890",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"SkySat7890"
+					]
+				},
+				"description": "This request attempts to delete a single asset from the asset store"
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Single Asset with Errors",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"asset_name\": \"SkySat7890\",\n    \"asset_type\": \"antenna\",\n    \"asset_class\": \"dish\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/SkySat7890",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"SkySat7890"
+					]
+				},
+				"description": "This request attempts to update a single asset in the asset store"
+			},
+			"response": []
+		},
+		{
+			"name": "Update A Single Asset with Success",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"diameter\": 37.9,\n    \"radome\": true\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/Dish7890",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"Dish7890"
+					]
+				},
+				"description": "This request attempts to update a single asset in the asset store"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrive A Single Asset with Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/Dish7890",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"Dish7890"
+					]
+				},
+				"description": "This request attempts to get a particular asset with name parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Multiple Assets",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"assets\": [\n\t\t{\n\t\t\t\"asset_name\": \"SkySat7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"skysat\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Dove7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"dove\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"RapidEye7890\",\n\t\t\t\"asset_type\": \"satellite\",\n\t\t\t\"asset_class\": \"rapideye\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Dish7890\",\n\t\t\t\"asset_type\": \"antenna\",\n\t\t\t\"asset_class\": \"dish\"\n\t\t},\n\t\t{\n\t\t\t\"asset_name\": \"Yagi7890\",\n\t\t\t\"asset_type\": \"antenna\",\n\t\t\t\"asset_class\": \"yagi\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/assets/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						""
+					]
+				},
+				"description": "This request attempts to update multiple assets in the asset store"
+			},
+			"response": []
+		}
+	]
+}
